@@ -1,0 +1,28 @@
+# Types
+entity.certificate_type.collection:
+  title: Certificate types
+  route_name: entity.certificate_type.collection
+  description: 'Administer certificate types.'
+  parent: certificate.admin
+  weight: -5
+
+# Certificates
+certificate.admin:
+  title: Certificate
+  route_name: certificate.admin
+  description: 'Administer certificates, certificate types, and global settings.'
+  parent: system.admin
+
+entity.certificate_template.collection:
+  title: Certificate templates
+  route_name: entity.certificate_template.collection
+  description: 'Administer certificate templates.'
+  parent: certificate.admin
+  weight: 5
+
+certificate.admin.settings_form:
+  title: Certificate settings
+  route_name: certificate.certificate_config_form
+  description: 'Administer global certificate settings.'
+  parent: certificate.admin
+  weight: -10

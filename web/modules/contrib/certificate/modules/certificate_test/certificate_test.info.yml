@@ -1,0 +1,12 @@
+name: Certificate tests
+description: Tests for the Certificate module
+type: module
+dependencies:
+ - certificate
+hidden:  TRUE
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2021-04-29
+version: '4.0.0-alpha4'
+project: 'certificate'
+datestamp: 1619726080

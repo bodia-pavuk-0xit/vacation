@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Add new settings.
+ */
+function puphpeteer_update_9000(&$sandbox) {
+  $settings = \Drupal::configFactory()->getEditable('puphpeteer.settings');
+  $settings->set('service', FALSE);
+  $settings->set('service_url', '');
+  $settings->save();
+}

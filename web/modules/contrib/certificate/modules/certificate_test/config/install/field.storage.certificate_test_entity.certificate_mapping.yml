@@ -1,0 +1,21 @@
+uuid: eec60499-f736-4a2e-b675-18e7ff89c864
+langcode: en
+status: true
+dependencies:
+  module:
+    - certificate
+    - certificate_test
+id: certificate_test_entity.certificate_mapping
+field_name: certificate_mapping
+entity_type: certificate_test_entity
+type: entity_reference
+settings:
+  target_type: certificate_mapping
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+

@@ -1,0 +1,4 @@
+services:
+  plugin.manager.certificate_mapper:
+    class: Drupal\certificate\Plugin\CertificateMapperManager
+    parent: default_plugin_manager

@@ -1,0 +1,8 @@
+entity.certificate.canonical:
+  route_name: entity.certificate.canonical
+  base_route: entity.certificate.canonical
+  title: 'View'
+  weight: 0
+
+  entity.certificate.tab:
+  deriver: Drupal\certificate\Plugin\Derivative\CertificateLocalTasks

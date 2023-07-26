@@ -1,0 +1,11 @@
+/**
+ * Admin toolbar icon.
+ */
+.toolbar-icon-certificate-admin::before {
+  background-image: url(../images/icon.svg);
+}
+
+.toolbar-icon-certificate-admin.is-active::before {
+  background-image: url(../images/icon.svg);
+  fill: grey;
+}

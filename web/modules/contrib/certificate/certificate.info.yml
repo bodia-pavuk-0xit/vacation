@@ -1,0 +1,14 @@
+name: Certificate
+description: Provides PDF certificates with criteria-based selection.
+type: module
+core_version_requirement: ^8 || ^9
+dependencies:
+- entity
+- options
+- printable_pdf
+- token
+configure: certificate.admin
+# Information added by Drupal.org packaging script on 2021-04-29
+version: '4.0.0-alpha4'
+project: 'certificate'
+datestamp: 1619726080

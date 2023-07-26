@@ -1,0 +1,19 @@
+administer certificate types:
+  title: Administer certificate types
+  description: Administer certificate types
+
+administer certificate:
+  title: Administer certificates
+  description: Configure global certificate settings and mappings.
+
+assign certificates:
+  title: assign certificates
+  description: Add or remove certificate mappings on certifiable objects.
+
+view all user certificates:
+  title: view all user certificates
+  description: View any certificate earned by another user.
+
+administer certificate mapping:
+  title: administer certificate mapping
+  description: Administer global certificate mapping

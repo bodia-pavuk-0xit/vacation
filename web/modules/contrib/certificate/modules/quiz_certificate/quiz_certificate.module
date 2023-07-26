@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_access_certificate().
+ */
+function quiz_certificate_access_certificate($node, $user) {
+  if ($node->type == 'quiz') {
+    // TODO: Drupal Rector Notice: Please delete the following comment after you've made any necessary changes.
+    // A ternary operator is used here to keep the conditional contained within this part of the expression. Consider wrapping this statement in an `if / else` statement.
+    $results = array('nid' => $node->nid, 'uid' => $user->uid) ? \Drupal::service('entity_type.manager')->getStorage('quiz_result')->resetCache([FALSE])->load(FALSE) : \Drupal::service('entity_type.manager')->getStorage('quiz_result')->load(FALSE);
+    foreach ($results as $result) {
+      if ($result->score >= $node->pass_rate) {
+        return TRUE;
+      }
+    }
+  }
+}

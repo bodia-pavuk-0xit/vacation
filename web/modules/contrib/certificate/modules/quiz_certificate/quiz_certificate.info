@@ -1,0 +1,11 @@
+name = Quiz certificates
+core = 7.x
+description = Award a Certificate when a quiz is passed.
+dependencies[] = quiz
+dependencies[] = certificate
+
+
+; Information added by Drupal.org packaging script on 2021-04-29
+version = "4.0.0-alpha4"
+project = "certificate"
+datestamp = "1619726080"

@@ -1,0 +1,10 @@
+name: PDF API
+type: module
+description: 'Provides an API for generating PDFs.'
+package: PDF
+core_version_requirement: ^8.8 || ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-07-11
+version: '2.3.2'
+project: 'pdf_api'
+datestamp: 1689071873

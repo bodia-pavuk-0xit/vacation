@@ -1,0 +1,18 @@
+certificate.admin:
+  path: '/admin/certificates'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Certificates'
+  requirements:
+    _permission: 'administer certificate'
+
+certificate.certificate_config_form:
+  path: '/admin/certificates/settings'
+  defaults:
+    _form: '\Drupal\certificate\Form\CertificateConfigForm'
+    _title: 'Certificate Settings Form'
+  requirements:
+    _permission: administer certificate'
+
+route_callbacks:
+  - '\Drupal\certificate\Routing\CertificateRoutes::routes'

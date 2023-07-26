@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - certificate.type.certificate
+    - field.storage.certificate_template.certificate_body
+  module:
+    - text
+id: certificate_template.certificate.certificate_body
+field_name: certificate_body
+entity_type: certificate_template
+bundle: certificate
+label: Certificate
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
+

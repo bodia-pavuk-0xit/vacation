@@ -1,0 +1,23 @@
+<?php
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ *
+ * @param EntityInterface $entity
+ * @param type $operation
+ * @param AccountInterface $account
+ * @return AccessResult $access
+ */
+function certificate_test_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  if ($entity->getEntityTypeId() == 'certificate_test_entity' && $operation == 'certificate') {
+    if ($account->getEmail() == 'certified@example.com') {
+      return AccessResult::allowed();
+    }
+    else {
+      return AccessResult::forbidden();
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "drupal/node_token",
+    "description": "Provides dedicated token types for each node bundle.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Vyacheslav Malchik (validoll)",
+            "homepage": "https://www.drupal.org/u/validoll",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Szczepan Musial (lamp5)",
+            "homepage": "https://www.drupal.org/u/lamp5",
+            "role": "Maintainer"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/token": "~1.0"
+    }
+}

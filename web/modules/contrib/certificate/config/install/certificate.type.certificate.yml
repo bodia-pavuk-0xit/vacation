@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: certificate
+type: null
+label: Certificate
+description: 'Default certificate type with a WYSIWYG field.'
+

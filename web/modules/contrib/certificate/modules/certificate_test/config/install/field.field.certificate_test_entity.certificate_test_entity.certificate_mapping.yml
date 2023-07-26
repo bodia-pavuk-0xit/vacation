@@ -1,0 +1,27 @@
+uuid: 3a62fcfe-5665-454c-b270-344d8c3da70c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.certificate_test_entity.certificate_mapping
+  module:
+    - certificate_test
+id: certificate_test_entity.certificate_test_entity.certificate_mapping
+field_name: certificate_mapping
+entity_type: certificate_test_entity
+bundle: certificate_test_entity
+label: 'Certificate mapping'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:certificate_mapping'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
+

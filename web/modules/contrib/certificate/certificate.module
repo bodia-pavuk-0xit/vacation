@@ -1,0 +1,216 @@
+<?php
+
+use Drupal\Core\Link;
+use Drupal\certificate\Form\CertificateConfigForm;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * @deprecated maybe
+ * Implements hook_node_view().
+ */
+function certificate_node_view($node, $view_mode, $langcode) {
+  return 'FIXME';
+  if (certificate_can_access_certificate($node['#node'])) {
+    // Add a download certificate link to the node content.
+    $url = Url::fromRoute('certificate.course');
+    $internal_link = Link::fromTextAndUrl(t('Download certificate'), $url);
+    $node->content['certificate']['#markup'] = '<span class="certificate-link">' . $internal_link . '</span>';
+  }
+}
+
+/**
+ * @deprecated maybe
+ * Implements hook_field_extra_fields().
+ */
+function certificate_field_extra_fields() {
+  return;
+  $extra = array();
+  foreach (entity_get_info() as $entity_type => $entity_info) {
+    if ($entity_type == 'node') {
+      foreach (array_keys($entity_info['bundles']) as $bundle) {
+        if (variable_get('certificate_certifiable_' . $bundle)) {
+          $extra[$entity_type][$bundle]['form']['certificate'] = array(
+            'label' => t('Certificate'),
+            'description' => t('Certificate module elements'),
+            'weight' => 0,
+          );
+        }
+      }
+    }
+  }
+
+  foreach (entity_get_info() as $entity_type => $entity_info) {
+    if ($entity_type == 'certificate') {
+      foreach (array_keys($entity_info['bundles']) as $bundle) {
+        $extra[$entity_type][$bundle]['form']['title'] = array(
+          'label' => t('Certificate title'),
+          'description' => t('Certificate title'),
+          'weight' => 1,
+        );
+        $extra[$entity_type][$bundle]['form']['name'] = array(
+          'label' => t('Certificate machine name'),
+          'description' => t('Certificate machine name'),
+          'weight' => 2,
+        );
+        $extra[$entity_type][$bundle]['form']['orientation'] = array(
+          'label' => t('Certificate orientation'),
+          'description' => t('Certificate orientation'),
+          'weight' => 3,
+        );
+        $extra[$entity_type][$bundle]['form']['certificate_tokens'] = array(
+          'label' => t('Certificate tokens'),
+          'description' => t('Tokens to insert into the certificate'),
+          'weight' => 5,
+        );
+      }
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_action_info().
+ *
+ * @todo d8 broken
+ */
+function certificate_action_info() {
+  return;
+  $info = array();
+
+  $info['certificate_reset_certificates_action'] = array(
+    'type' => 'node',
+    'label' => t('Reset certificate snapshots for this node.'),
+    'configurable' => FALSE,
+    'triggers' => array(
+      'nodeapi_insert',
+      'nodeapi_update',
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Expose certificate awarding as an action.
+ */
+function certificate_rules_action_info() {
+  $info = array();
+
+  $info['certificate_rules_award_certificate'] = array(
+    'label' => t('Award certificate'),
+    'configurable' => FALSE,
+    'module' => 'certificate',
+  );
+
+  return $info;
+}
+
+/**
+ * Set the awarded certificate.
+ *
+ * @todo in Drupal 7 and Rules 2, we can use return values. Rules 1 does not
+ * have return values.
+ */
+function certificate_rules_award_certificate($node, $user) {
+  global $_certificate_award;
+  $_certificate_award = TRUE;
+}
+
+/**
+ * Action to delete certificate snapshots on a node.
+ */
+function certificate_reset_certificates_action($object, $context) {
+  $node = $object;
+
+  if ($node->nid && is_numeric($node->nid)) {
+    certificate_snapshot_delete_by_node($node);
+    watchdog('action', 'Reset certificate snapshots for: %node.', array('%node' => $node->title));
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ *
+ * @todo fix d8
+ */
+function certificate_user_delete($account) {
+  return;
+  $sql = "DELETE FROM {certificate_snapshots} WHERE uid = :uid";
+  // TODO: Drupal Rector Notice: Please delete the following comment after you've made any necessary changes.
+  // You will need to use `\Drupal\core\Database\Database::getConnection()` if you do not yet have access to the container here.
+  \Drupal::database()->query($sql, array(':uid' => $account->uid));
+}
+
+/**
+ * Get mapper options
+ */
+function certificate_get_certificate_mappers(BaseFieldDefinition $definition = NULL, ContentEntityInterface $entity = NULL) {
+  $options = [];
+  $certificate_mappers = Drupal::service('plugin.manager.certificate_mapper');
+  $mapper_definitions = $certificate_mappers->getDefinitions();
+
+  foreach ($mapper_definitions as $map_type => $map) {
+    $plugin = $certificate_mappers->createInstance($map_type, ['of' => 'configuration values']);
+    // Skip plugins that are missing dependent modules
+    if (!$plugin->hasDependencies()) {
+      continue;
+    }
+    $options[$map_type] = $map['label'];
+  }
+
+  return $options;
+}
+
+/**
+ * Get mapper value options
+ */
+function certificate_get_certificate_mapper_values(BaseFieldDefinition $definition = NULL, ContentEntityInterface $entity = NULL) {
+  $options = [];
+  $certificate_mappers = Drupal::service('plugin.manager.certificate_mapper');
+  $mapper_definitions = $certificate_mappers->getDefinitions();
+
+  foreach ($mapper_definitions as $map_type => $map) {
+    $plugin = $certificate_mappers->createInstance($map_type, ['of' => 'configuration values']);
+    // Skip plugins that are missing dependent modules
+    if (!$plugin->hasDependencies()) {
+      continue;
+    }
+    $options += $plugin->getMapKeys();
+  }
+
+  return $options;
+}
+
+/**
+ *  Helper to return a list of certificate templates suitable as options in a select list
+ * @return type
+ */
+function certificate_get_certificate_options() {
+  return CertificateConfigForm::getCertificateTemplateOptions();
+}
+
+/**
+ * Returns a list of all entity types with an entity reference field targeting certificate_mapping entities
+ */
+function certificate_get_entity_types() {
+  $entity_types = [];
+  /* @var $fields Drupal\field\Entity\FieldConfig[] */
+  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties(['field_type' => 'entity_reference']);
+  foreach ($fields as $field) {
+    if ($field->getSetting('target_type') == 'certificate_mapping') {
+      $entity_types[] = $field->getTargetEntityTypeId();
+    }
+  }
+  return $entity_types;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function certificate_page_attachments(&$page) {
+  $page['#attached']['library'][] = 'certificate/styles';
+}
