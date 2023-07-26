@@ -1,0 +1,23 @@
+uuid: 64199e70-20f4-46af-93f8-fca2e400a1dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved
+    - node.type.request
+id: node.request.field_approved
+field_name: field_approved
+entity_type: node
+bundle: request
+label: Approved
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

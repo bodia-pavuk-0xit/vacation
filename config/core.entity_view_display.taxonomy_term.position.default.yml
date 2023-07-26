@@ -1,0 +1,41 @@
+uuid: b89ee315-0833-4fc9-9228-51a9177dff28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.position.field_full_year
+    - field.field.taxonomy_term.position.field_half_year
+    - taxonomy.vocabulary.position
+  module:
+    - text
+id: taxonomy_term.position.default
+targetEntityType: taxonomy_term
+bundle: position
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_full_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_half_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

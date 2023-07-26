@@ -1,0 +1,25 @@
+uuid: 45062e03-7675-4068-be01-bc1250be1dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_days_available_for_vacatio
+    - node.type.employee
+id: node.employee.field_days_available_for_vacatio
+field_name: field_days_available_for_vacatio
+entity_type: node
+bundle: employee
+label: 'Days available for vacation'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

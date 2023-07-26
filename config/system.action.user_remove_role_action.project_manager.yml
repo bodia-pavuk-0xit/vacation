@@ -1,0 +1,14 @@
+uuid: 0edfaa16-33a2-4b10-b115-6d81c936854d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.project_manager
+  module:
+    - user
+id: user_remove_role_action.project_manager
+label: 'Remove the Project manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: project_manager

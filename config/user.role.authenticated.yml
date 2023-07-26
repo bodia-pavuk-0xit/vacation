@@ -1,0 +1,63 @@
+uuid: 27d433fd-a391-45ca-a69f-ba6776704bf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - node.type.article
+    - node.type.employee
+    - node.type.page
+    - node.type.request
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contact
+    - filter
+    - media
+    - node
+    - path
+    - search
+    - shortcut
+    - system
+    - taxonomy
+    - toolbar
+    - tour
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access comments'
+  - 'access content'
+  - 'access content overview'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create employee content'
+  - 'create page content'
+  - 'create request content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete article revisions'
+  - 'delete own article content'
+  - 'delete own page content'
+  - 'delete own request content'
+  - 'delete page revisions'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own page content'
+  - 'edit own request content'
+  - 'edit terms in tags'
+  - 'post comments'
+  - 'revert all revisions'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'view media'
+  - 'view the administration theme'

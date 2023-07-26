@@ -1,0 +1,24 @@
+uuid: 2cfda4cd-86f1-4264-afd2-b3373f611de0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_date_of_work
+    - node.type.employee
+  module:
+    - datetime
+id: node.employee.field_start_date_of_work
+field_name: field_start_date_of_work
+entity_type: node
+bundle: employee
+label: 'Start Date Of Work'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+uuid: aae7861b-0672-4741-b746-60041477a541
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.request
+  module:
+    - contextual
+    - file
+    - node
+id: ceo
+label: CEO
+weight: 10
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit any request content'

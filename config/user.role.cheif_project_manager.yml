@@ -1,0 +1,20 @@
+uuid: bab5d6f0-6e6b-4cca-af8f-0639c65a6947
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.request
+  module:
+    - comment
+    - contextual
+    - file
+    - node
+id: cheif_project_manager
+label: 'Cheif project manager'
+weight: 7
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit any request content'
+  - 'edit own comments'

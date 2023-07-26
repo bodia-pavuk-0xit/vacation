@@ -1,0 +1,18 @@
+uuid: 49d84c0e-3f3c-4756-8d34-35c3b177c767
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.request
+  module:
+    - contextual
+    - file
+    - node
+id: team_leader
+label: 'Team leader'
+weight: 9
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit any request content'

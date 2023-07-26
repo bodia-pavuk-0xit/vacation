@@ -1,0 +1,27 @@
+uuid: f46b3c5c-9667-455e-9165-71b38671889b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type_of_vacation_request
+field_name: field_type_of_vacation_request
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'I want holiday'
+      label: 'I want holiday'
+    -
+      value: 'To solve personal issue (Something else)'
+      label: 'To solve personal issue (Something else)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

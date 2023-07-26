@@ -1,0 +1,23 @@
+uuid: 63e599c7-7788-42d0-8116-b319cb5898f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_full_year
+    - taxonomy.vocabulary.position
+id: taxonomy_term.position.field_full_year
+field_name: field_full_year
+entity_type: taxonomy_term
+bundle: position
+label: 'Full year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

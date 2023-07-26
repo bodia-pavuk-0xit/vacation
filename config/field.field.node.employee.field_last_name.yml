@@ -1,0 +1,19 @@
+uuid: c26e55cd-a6af-49ce-b72a-e0f8892e89d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_name
+    - node.type.employee
+id: node.employee.field_last_name
+field_name: field_last_name
+entity_type: node
+bundle: employee
+label: 'Last Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

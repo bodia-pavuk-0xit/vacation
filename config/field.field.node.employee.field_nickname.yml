@@ -1,0 +1,19 @@
+uuid: d04348ed-5357-478e-81ea-545508a68ed4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nickname
+    - node.type.employee
+id: node.employee.field_nickname
+field_name: field_nickname
+entity_type: node
+bundle: employee
+label: Nickname
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

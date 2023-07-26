@@ -1,0 +1,16 @@
+uuid: 6798a153-fe36-47aa-9045-0db49c81dfc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contextual
+    - file
+id: customer
+label: Customer
+weight: 4
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit own comments'

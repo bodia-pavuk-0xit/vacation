@@ -1,0 +1,56 @@
+uuid: 09759388-8403-4df8-aea8-2e6dfea532e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.request
+  module:
+    - content_moderation
+id: workflow_request
+label: 'Workflow Request'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Draft
+      weight: -2
+      published: false
+      default_revision: false
+    not_approved:
+      label: 'Not approved'
+      weight: 1
+      published: false
+      default_revision: false
+    published:
+      label: Approved
+      weight: 0
+      published: true
+      default_revision: true
+    under_consideration:
+      label: 'Under consideration'
+      weight: -1
+      published: false
+      default_revision: false
+  transitions:
+    from_draft_to_under_consideration:
+      label: 'From Draft to Under consideration'
+      from:
+        - draft
+      to: under_consideration
+      weight: 0
+    from_under_consideration_to_approved:
+      label: 'From Under consideration to Approved'
+      from:
+        - under_consideration
+      to: published
+      weight: 1
+    from_under_consideration_to_not_approved:
+      label: 'From Under consideration to Not approved'
+      from:
+        - under_consideration
+      to: not_approved
+      weight: 2
+  entity_types:
+    node:
+      - request
+  default_moderation_state: draft

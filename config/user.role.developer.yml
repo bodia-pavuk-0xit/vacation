@@ -1,0 +1,16 @@
+uuid: a64773cb-d9a2-4971-a5d8-0fe79741289a
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contextual
+    - file
+id: developer
+label: Developer
+weight: 5
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit own comments'

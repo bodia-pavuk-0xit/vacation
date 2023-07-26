@@ -1,0 +1,23 @@
+uuid: 60d17ebb-2f72-4ada-874f-631d2159f7a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_days_available
+    - node.type.certificate
+id: node.certificate.field_number_of_days_available
+field_name: field_number_of_days_available
+entity_type: node
+bundle: certificate
+label: 'Number of days available'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

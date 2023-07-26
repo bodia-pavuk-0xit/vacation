@@ -15,9 +15,12 @@
         }
     ],
     "require": {
+        "drupal/core": "9.6.x",
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/address": "^1.12",
         "drupal/admin_toolbar": "^3.4",
+        "drupal/backup_migrate": "^5.0",
         "drupal/bpmn_io": "^1.1",
         "drupal/certificate": "^4.0@alpha",
         "drupal/core-composer-scaffold": "^9",
@@ -47,7 +50,8 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "cweagans/composer-patches": true
         }
     },
     "extra": {

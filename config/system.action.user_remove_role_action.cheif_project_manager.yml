@@ -1,0 +1,14 @@
+uuid: ac7ed58a-a445-478d-ab90-d3c4ab4bea1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cheif_project_manager
+  module:
+    - user
+id: user_remove_role_action.cheif_project_manager
+label: 'Remove the Cheif project manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cheif_project_manager

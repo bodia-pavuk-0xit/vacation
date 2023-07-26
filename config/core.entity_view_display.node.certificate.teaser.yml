@@ -1,0 +1,42 @@
+uuid: c7945fc5-92ed-446f-9b10-cde0ad2a84c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.certificate.body
+    - field.field.node.certificate.field_number_of_days_available
+    - field.field.node.certificate.field_to_whom_it_is_issued
+    - field.field.node.certificate.field_type_of_vacation
+    - field.field.node.certificate.field_valid_from
+    - field.field.node.certificate.field_valid_until
+    - field.field.node.certificate.field_who_approved
+    - node.type.certificate
+  module:
+    - text
+    - user
+id: node.certificate.teaser
+targetEntityType: node
+bundle: certificate
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_number_of_days_available: true
+  field_to_whom_it_is_issued: true
+  field_type_of_vacation: true
+  field_valid_from: true
+  field_valid_until: true
+  field_who_approved: true

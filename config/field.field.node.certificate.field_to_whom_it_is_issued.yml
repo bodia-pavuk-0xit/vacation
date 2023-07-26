@@ -1,0 +1,29 @@
+uuid: c7ced1d9-9cf2-47e7-a57d-2d32a7f5ed59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_to_whom_it_is_issued
+    - node.type.certificate
+    - taxonomy.vocabulary.position
+id: node.certificate.field_to_whom_it_is_issued
+field_name: field_to_whom_it_is_issued
+entity_type: node
+bundle: certificate
+label: 'To whom it is issued'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      position: position
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

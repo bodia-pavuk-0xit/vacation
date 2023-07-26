@@ -1,0 +1,20 @@
+uuid: 8f0dca09-a4e6-408a-8158-44c03dcf9ec6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_days_available_for_vacatio
+field_name: field_days_available_for_vacatio
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

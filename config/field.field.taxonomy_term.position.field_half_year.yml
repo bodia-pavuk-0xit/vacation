@@ -1,0 +1,23 @@
+uuid: 7df35d29-8a5b-4fd7-8abe-df3552e3db72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_half_year
+    - taxonomy.vocabulary.position
+id: taxonomy_term.position.field_half_year
+field_name: field_half_year
+entity_type: taxonomy_term
+bundle: position
+label: 'Half year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

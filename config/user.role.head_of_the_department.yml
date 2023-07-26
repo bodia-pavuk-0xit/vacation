@@ -1,0 +1,16 @@
+uuid: 67348502-6f7f-4277-bba1-8edd2dffcd10
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contextual
+    - file
+id: head_of_the_department
+label: 'Head of the department'
+weight: 8
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit own comments'

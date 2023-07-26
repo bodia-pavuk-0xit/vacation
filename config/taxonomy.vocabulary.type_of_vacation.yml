@@ -1,0 +1,8 @@
+uuid: 9a7499cb-e52d-403e-b81b-2acc2b9aa537
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of vacation'
+vid: type_of_vacation
+description: ''
+weight: 0

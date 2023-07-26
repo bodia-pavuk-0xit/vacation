@@ -1,0 +1,14 @@
+uuid: 25e8c30f-8669-4aa4-bacb-a5fa86a976bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cheif_project_manager
+  module:
+    - user
+id: user_add_role_action.cheif_project_manager
+label: 'Add the Cheif project manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cheif_project_manager

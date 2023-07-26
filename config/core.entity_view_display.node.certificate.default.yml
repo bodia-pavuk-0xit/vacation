@@ -1,0 +1,86 @@
+uuid: 1d03102a-c2f3-4ea7-8d5d-4f7d2e428123
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.certificate.body
+    - field.field.node.certificate.field_number_of_days_available
+    - field.field.node.certificate.field_to_whom_it_is_issued
+    - field.field.node.certificate.field_type_of_vacation
+    - field.field.node.certificate.field_valid_from
+    - field.field.node.certificate.field_valid_until
+    - field.field.node.certificate.field_who_approved
+    - node.type.certificate
+  module:
+    - datetime
+    - text
+    - user
+id: node.certificate.default
+targetEntityType: node
+bundle: certificate
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_number_of_days_available:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_to_whom_it_is_issued:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_type_of_vacation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_valid_from:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_valid_until:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_who_approved:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

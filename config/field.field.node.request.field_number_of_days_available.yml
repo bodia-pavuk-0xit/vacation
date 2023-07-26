@@ -1,0 +1,23 @@
+uuid: 2bd3af4b-b680-4c7f-a12b-1af1f4fe485f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_days_available
+    - node.type.request
+id: node.request.field_number_of_days_available
+field_name: field_number_of_days_available
+entity_type: node
+bundle: request
+label: 'Number of days available'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
